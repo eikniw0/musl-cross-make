@@ -1,10 +1,7 @@
 name: Makefile CI
 
 on:
-  push:
-    branches: [ "musl.cc" ]
-  pull_request:
-    branches: [ "musl.cc" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,7 +22,7 @@ jobs:
       - name: Configure caching 
         uses: actions/cache@v3
         with:
-          key: ${{ matrix.os }}-${{ matrix.target }}
+          key: ${{ matrix.os }}-${{ matrix.target }}-${{ hashFiles('**/Makefile') }}
           path: |
             Sources/
             output/
@@ -39,6 +36,10 @@ jobs:
             linux-*/
             isl-*/
             build/
+          restore-keys: |
+            ${{ matrix.os }}-${{ matrix.target }}-
+            ${{ matrix.os }}-
+
       - name: Build MUSL
         run: TARGET=${{ matrix.target }} make -j
 
