@@ -41,7 +41,7 @@ jobs:
             ${{ matrix.os }}-
 
       - name: Build MUSL
-        run: TARGET=${{ matrix.target }} make -j --no-print-directory
+        run: TARGET=${{ matrix.target }} make -j --no-print-directory >/dev/null || make
 
       - name: Package outputs
         run: tar -cf musl-${{ matrix.os }}-${{ matrix.target }}.tgz -C build/local ${{matrix.target}}
