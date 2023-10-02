@@ -1,0 +1,36 @@
+TARGET = arm-linux-musleabihf
+OUTPUT = /data/data/com.termux/files/musl-cross
+
+# By default, latest supported release versions of musl and the toolchain
+# components are used. You can override those here, but the version selected
+# must be supported (under hashes/ and patches/) to work. For musl, you
+# can use "git-refname" (e.g. git-master) instead of a release. Setting a
+# blank version for gmp, mpc, mpfr and isl will suppress download and
+# in-tree build of these libraries and instead depend on pre-installed
+# libraries when available (isl is optional and not set by default).
+# Setting a blank version for linux will suppress installation of kernel
+# headers, which are not needed unless compiling programs that use them.
+
+# BINUTILS_VER = 2.25.1
+# GCC_VER = 5.2.0
+# MUSL_VER = git-master
+# GMP_VER =
+# MPC_VER =
+# MPFR_VER =
+# ISL_VER =
+# LINUX_VER =
+
+COMMON_CONFIG += CFLAGS="-g0 -Os"
+COMMON_CONFIG += CXXFLAGS="-g0 -Os"
+COMMON_CONFIG += LDFLAGS="-s"
+
+COMMON_CONFIG += --disable-nls
+
+GCC_CONFIG += --disable-libquadmath
+GCC_CONFIG += --disable-decimal-float
+GCC_CONFIG += --disable-libitm
+GCC_CONFIG += --disable-fixed-point
+GCC_CONFIG += --disable-lto
+GCC_CONFIG += --enable-languages=c,c++
+
+COMMON_CONFIG += --with-debug-prefix-map=$(CURDIR)=
