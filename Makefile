@@ -8,6 +8,7 @@ MUSL_VER = 1.2.4
 GMP_VER = 6.3.0
 MPC_VER = 1.3.1
 MPFR_VER = 4.2.0
+ISL_VER = 0.26
 LINUX_VER = headers-4.19.88-2
 
 GNU_SITE = https://ftp.gnu.org/gnu
