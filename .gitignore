@@ -12,3 +12,6 @@
 /isl-*/
 /build/
 /logs/
+
+*.log
+*~
