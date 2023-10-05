@@ -1,0 +1,4 @@
+--- TOP PRIORITY ---
+   o  Figure out how to use submodules to setup trees/, instead
+      of the stupid bullshit hack I've set up (which doesn't
+      even work the way I want--sigh)
