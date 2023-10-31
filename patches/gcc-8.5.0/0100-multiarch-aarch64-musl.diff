@@ -1,0 +1,14 @@
+diff -Naur gcc-8.5.0.orig/gcc/config/aarch64/t-aarch64-linux gcc-8.5.0/gcc/config/aarch64/t-aarch64-linux
+--- gcc-8.5.0.orig/gcc/config/aarch64/t-aarch64-linux	2021-05-14 01:42:08.000000000 -0700
++++ gcc-8.5.0/gcc/config/aarch64/t-aarch64-linux	2023-10-30 21:48:27.346368482 -0700
+@@ -22,7 +22,7 @@
+ LIB1ASMFUNCS = _aarch64_sync_cache_range
+ 
+ AARCH_BE = $(if $(findstring TARGET_BIG_ENDIAN_DEFAULT=1, $(tm_defines)),_be)
+-MULTILIB_OSDIRNAMES = mabi.lp64=../lib64$(call if_multiarch,:aarch64$(AARCH_BE)-linux-gnu)
+-MULTIARCH_DIRNAME = $(call if_multiarch,aarch64$(AARCH_BE)-linux-gnu)
++MULTILIB_OSDIRNAMES = mabi.lp64=$(call if_multiarch,:aarch64$(AARCH_BE)-linux-musl)
++MULTIARCH_DIRNAME = $(call if_multiarch,aarch64$(AARCH_BE)-linux-musl)
+ 
+-MULTILIB_OSDIRNAMES += mabi.ilp32=../libilp32$(call if_multiarch,:aarch64$(AARCH_BE)-linux-gnu_ilp32)
++MULTILIB_OSDIRNAMES += mabi.ilp32=$(call if_multiarch,:aarch64$(AARCH_BE)-linux-musl_ilp32)

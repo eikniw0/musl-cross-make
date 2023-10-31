@@ -1,0 +1,14 @@
+diff '--color=auto' -Naur gcc-8.5.0.orig/gcc/Makefile.in gcc-8.5.0/gcc/Makefile.in
+--- gcc-8.5.0.orig/gcc/Makefile.in	2021-05-14 01:42:08.000000000 -0700
++++ gcc-8.5.0/gcc/Makefile.in	2023-10-30 21:47:09.086368477 -0700
+@@ -260,8 +260,8 @@
+ LINKER_FLAGS = $(CFLAGS)
+ endif
+ 
+-NO_PIE_CFLAGS = @NO_PIE_CFLAGS@
+-NO_PIE_FLAG = @NO_PIE_FLAG@
++NO_PIE_CFLAGS = -fPIC
++NO_PIE_FLAG = -pie
+ 
+ # We don't want to compile the compilers with -fPIE, it make PCH fail.
+ COMPILER += $(NO_PIE_CFLAGS)

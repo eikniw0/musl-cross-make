@@ -1,0 +1,22 @@
+--- gcc-8.5.0.orig/Makefile.in	2021-05-14 01:42:08.000000000 -0700
++++ gcc-8.5.0/Makefile.in	2023-10-30 21:46:59.062368477 -0700
+@@ -84,7 +84,7 @@
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+ INSTALL_DATA = @INSTALL_DATA@
+-LN = @LN@
++LN = @LN_S@
+ LN_S = @LN_S@
+ MAINT = @MAINT@
+ MAINTAINER_MODE_FALSE = @MAINTAINER_MODE_FALSE@
+--- gcc-8.5.0.orig/gcc/Makefile.in	2021-05-14 01:42:08.000000000 -0700
++++ gcc-8.5.0/gcc/Makefile.in	2023-10-30 21:55:47.570368508 -0700
+@@ -303,7 +303,7 @@
+ INSTALL = @INSTALL@
+ # Some systems may be missing symbolic links, regular links, or both.
+ # Allow configure to check this and use "ln -s", "ln", or "cp" as appropriate.
+-LN=@LN@
++LN=@LN_S@
+ LN_S=@LN_S@
+ # These permit overriding just for certain files.
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
