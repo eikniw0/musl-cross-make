@@ -1,0 +1,24 @@
+--- binutils-2.35.2/include/ctf-api.h.orig	2023-10-30 13:39:12.159675932 -0700
++++ binutils-2.35.2/include/ctf-api.h	2023-10-30 13:40:40.623675938 -0700
+@@ -339,9 +339,6 @@
+ extern const char *ctf_enum_name (ctf_file_t *, ctf_id_t, int);
+ extern int ctf_enum_value (ctf_file_t *, ctf_id_t, const char *, int *);
+ 
+-extern void ctf_label_set (ctf_file_t *, const char *);
+-extern const char *ctf_label_get (ctf_file_t *);
+-
+ extern const char *ctf_label_topmost (ctf_file_t *);
+ extern int ctf_label_info (ctf_file_t *, const char *, ctf_lblinfo_t *);
+ 
+--- binutils-2.35.2/libctf/libctf.ver.orig	2023-10-30 13:39:47.207675934 -0700
++++ binutils-2.35.2/libctf/libctf.ver	2023-10-30 13:40:21.095675936 -0700
+@@ -75,9 +75,6 @@
+ 	ctf_enum_name;
+ 	ctf_enum_value;
+ 
+-	ctf_label_set;
+-	ctf_label_get;
+-
+ 	ctf_label_topmost;
+ 	ctf_label_info;
+ 
